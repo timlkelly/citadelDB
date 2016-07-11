@@ -67,24 +67,22 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	// import MyTable from './table.jsx';
-	
 	var _require = __webpack_require__(/*! fixed-data-table */ 172);
 	
 	var Table = _require.Table;
 	var Column = _require.Column;
 	var Cell = _require.Cell;
 	
-	var MyTextCell = function (_React$Component) {
-	  _inherits(MyTextCell, _React$Component);
+	var SystemCell = function (_React$Component) {
+	  _inherits(SystemCell, _React$Component);
 	
-	  function MyTextCell() {
-	    _classCallCheck(this, MyTextCell);
+	  function SystemCell() {
+	    _classCallCheck(this, SystemCell);
 	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(MyTextCell).apply(this, arguments));
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(SystemCell).apply(this, arguments));
 	  }
 	
-	  _createClass(MyTextCell, [{
+	  _createClass(SystemCell, [{
 	    key: 'render',
 	    value: function render() {
 	      var _props = this.props;
@@ -102,19 +100,19 @@
 	    }
 	  }]);
 	
-	  return MyTextCell;
+	  return SystemCell;
 	}(_react2.default.Component);
 	
-	var MyLinkCell = function (_React$Component2) {
-	  _inherits(MyLinkCell, _React$Component2);
+	var RegionCell = function (_React$Component2) {
+	  _inherits(RegionCell, _React$Component2);
 	
-	  function MyLinkCell() {
-	    _classCallCheck(this, MyLinkCell);
+	  function RegionCell() {
+	    _classCallCheck(this, RegionCell);
 	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(MyLinkCell).apply(this, arguments));
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(RegionCell).apply(this, arguments));
 	  }
 	
-	  _createClass(MyLinkCell, [{
+	  _createClass(RegionCell, [{
 	    key: 'render',
 	    value: function render() {
 	      var _props2 = this.props;
@@ -124,44 +122,158 @@
 	
 	      var props = _objectWithoutProperties(_props2, ['rowIndex', 'field', 'data']);
 	
-	      var link = data[rowIndex][field];
 	      return _react2.default.createElement(
 	        Cell,
 	        props,
-	        _react2.default.createElement(
-	          'a',
-	          { href: link },
-	          link
-	        )
+	        data[rowIndex][field]
 	      );
 	    }
 	  }]);
 	
-	  return MyLinkCell;
+	  return RegionCell;
 	}(_react2.default.Component);
 	
-	var MyTable = function (_React$Component3) {
-	  _inherits(MyTable, _React$Component3);
+	var CitadelCell = function (_React$Component3) {
+	  _inherits(CitadelCell, _React$Component3);
 	
-	  function MyTable(props) {
-	    _classCallCheck(this, MyTable);
+	  function CitadelCell() {
+	    _classCallCheck(this, CitadelCell);
 	
-	    var _this3 = _possibleConstructorReturn(this, Object.getPrototypeOf(MyTable).call(this, props));
-	
-	    _this3.state = {
-	      myTableData: [{ name: 'Rylan', email: 'fdasf@fdas.com' }, { name: 'Amelia', email: 'sdafjjsdafjkl' }, { name: 'Estevan', email: 'jfdk' }, { name: 'Florence', email: 'fjsajklfsklj;asfkljsdf;jkj' }, { name: 'Tressa', email: 'fdasjhklcc3233' }],
-	      citadels: [{ system: "YHN-3K", region: "Catch", citadel_type: "Astrahus", corporation: "Grass Fed Cannibals", alliance: "Legio De Mortem", killed_at: null }, { system: "7RM-N0", region: "Pure Blind", citadel_type: "Astrahus", corporation: "Pandemic Horde Inc.", alliance: "Pandemic Horde", killed_at: null }]
-	    };
-	    return _this3;
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(CitadelCell).apply(this, arguments));
 	  }
 	
-	  _createClass(MyTable, [{
+	  _createClass(CitadelCell, [{
+	    key: 'render',
+	    value: function render() {
+	      var _props3 = this.props;
+	      var rowIndex = _props3.rowIndex;
+	      var field = _props3.field;
+	      var data = _props3.data;
+	
+	      var props = _objectWithoutProperties(_props3, ['rowIndex', 'field', 'data']);
+	
+	      return _react2.default.createElement(
+	        Cell,
+	        props,
+	        data[rowIndex][field]
+	      );
+	    }
+	  }]);
+	
+	  return CitadelCell;
+	}(_react2.default.Component);
+	
+	var CorporationCell = function (_React$Component4) {
+	  _inherits(CorporationCell, _React$Component4);
+	
+	  function CorporationCell() {
+	    _classCallCheck(this, CorporationCell);
+	
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(CorporationCell).apply(this, arguments));
+	  }
+	
+	  _createClass(CorporationCell, [{
+	    key: 'render',
+	    value: function render() {
+	      var _props4 = this.props;
+	      var rowIndex = _props4.rowIndex;
+	      var field = _props4.field;
+	      var data = _props4.data;
+	
+	      var props = _objectWithoutProperties(_props4, ['rowIndex', 'field', 'data']);
+	
+	      return _react2.default.createElement(
+	        Cell,
+	        props,
+	        data[rowIndex][field]
+	      );
+	    }
+	  }]);
+	
+	  return CorporationCell;
+	}(_react2.default.Component);
+	
+	var AllianceCell = function (_React$Component5) {
+	  _inherits(AllianceCell, _React$Component5);
+	
+	  function AllianceCell() {
+	    _classCallCheck(this, AllianceCell);
+	
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(AllianceCell).apply(this, arguments));
+	  }
+	
+	  _createClass(AllianceCell, [{
+	    key: 'render',
+	    value: function render() {
+	      var _props5 = this.props;
+	      var rowIndex = _props5.rowIndex;
+	      var field = _props5.field;
+	      var data = _props5.data;
+	
+	      var props = _objectWithoutProperties(_props5, ['rowIndex', 'field', 'data']);
+	
+	      return _react2.default.createElement(
+	        Cell,
+	        props,
+	        data[rowIndex][field]
+	      );
+	    }
+	  }]);
+	
+	  return AllianceCell;
+	}(_react2.default.Component);
+	
+	var DestroyedCell = function (_React$Component6) {
+	  _inherits(DestroyedCell, _React$Component6);
+	
+	  function DestroyedCell() {
+	    _classCallCheck(this, DestroyedCell);
+	
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(DestroyedCell).apply(this, arguments));
+	  }
+	
+	  _createClass(DestroyedCell, [{
+	    key: 'render',
+	    value: function render() {
+	      var _props6 = this.props;
+	      var rowIndex = _props6.rowIndex;
+	      var field = _props6.field;
+	      var data = _props6.data;
+	
+	      var props = _objectWithoutProperties(_props6, ['rowIndex', 'field', 'data']);
+	
+	      return _react2.default.createElement(
+	        Cell,
+	        props,
+	        data[rowIndex][field]
+	      );
+	    }
+	  }]);
+	
+	  return DestroyedCell;
+	}(_react2.default.Component);
+	
+	var CitadelTable = function (_React$Component7) {
+	  _inherits(CitadelTable, _React$Component7);
+	
+	  function CitadelTable(props) {
+	    _classCallCheck(this, CitadelTable);
+	
+	    var _this7 = _possibleConstructorReturn(this, Object.getPrototypeOf(CitadelTable).call(this, props));
+	
+	    _this7.state = {
+	      citadels: [{ system: "YHN-3K", region: "Catch", citadel_type: "Astrahus", corporation: "Grass Fed Cannibals", alliance: "Legio De Mortem", killed_at: null }, { system: "7RM-N0", region: "Pure Blind", citadel_type: "Astrahus", corporation: "Pandemic Horde Inc.", alliance: "Pandemic Horde", killed_at: null }, { system: "J165058", region: "D-R00022", citadel_type: "Astrahus", corporation: "Repo Industries", alliance: null, killed_at: null }, { system: "J172350", region: "B-R00006", citadel_type: "Astrahus", corporation: "RGSU", alliance: "Goonswarm Federation", killed_at: '2016.06.27 00:37:37' }]
+	    };
+	    return _this7;
+	  }
+	
+	  _createClass(CitadelTable, [{
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        Table,
 	        {
-	          rowsCount: this.state.myTableData.length,
+	          rowsCount: this.state.citadels.length,
 	          rowHeight: 50,
 	          headerHeight: 50,
 	          width: 1000,
@@ -170,35 +282,83 @@
 	          header: _react2.default.createElement(
 	            Cell,
 	            null,
-	            'Name'
+	            'System'
 	          ),
-	          cell: _react2.default.createElement(MyTextCell, {
-	            data: this.state.myTableData,
-	            field: 'name'
+	          cell: _react2.default.createElement(SystemCell, {
+	            data: this.state.citadels,
+	            field: 'system'
 	          }),
-	          width: 200
+	          width: 100
 	        }),
 	        _react2.default.createElement(Column, {
 	          header: _react2.default.createElement(
 	            Cell,
 	            null,
-	            'Email'
+	            'Region'
 	          ),
-	          cell: _react2.default.createElement(MyLinkCell, {
-	            data: this.state.myTableData,
-	            field: 'email'
+	          cell: _react2.default.createElement(RegionCell, {
+	            data: this.state.citadels,
+	            field: 'region'
 	          }),
-	          width: 200
+	          width: 150
+	        }),
+	        _react2.default.createElement(Column, {
+	          header: _react2.default.createElement(
+	            Cell,
+	            null,
+	            'Citadel Type'
+	          ),
+	          cell: _react2.default.createElement(CitadelCell, {
+	            data: this.state.citadels,
+	            field: 'citadel_type'
+	          }),
+	          width: 150
+	        }),
+	        _react2.default.createElement(Column, {
+	          header: _react2.default.createElement(
+	            Cell,
+	            null,
+	            'Corporation'
+	          ),
+	          cell: _react2.default.createElement(CorporationCell, {
+	            data: this.state.citadels,
+	            field: 'corporation'
+	          }),
+	          width: 150
+	        }),
+	        _react2.default.createElement(Column, {
+	          header: _react2.default.createElement(
+	            Cell,
+	            null,
+	            'Alliance'
+	          ),
+	          cell: _react2.default.createElement(AllianceCell, {
+	            data: this.state.citadels,
+	            field: 'alliance'
+	          }),
+	          width: 150
+	        }),
+	        _react2.default.createElement(Column, {
+	          header: _react2.default.createElement(
+	            Cell,
+	            null,
+	            'Destroyed'
+	          ),
+	          cell: _react2.default.createElement(DestroyedCell, {
+	            data: this.state.citadels,
+	            field: 'killed_at'
+	          }),
+	          width: 150
 	        })
 	      );
 	    }
 	  }]);
 	
-	  return MyTable;
+	  return CitadelTable;
 	}(_react2.default.Component);
 	
-	var App = function (_React$Component4) {
-	  _inherits(App, _React$Component4);
+	var App = function (_React$Component8) {
+	  _inherits(App, _React$Component8);
 	
 	  function App() {
 	    _classCallCheck(this, App);
@@ -212,12 +372,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          ' hiii there '
-	        ),
-	        _react2.default.createElement(MyTable, null)
+	        _react2.default.createElement(CitadelTable, null)
 	      );
 	    }
 	  }]);
