@@ -262,7 +262,7 @@
 	    var _this7 = _possibleConstructorReturn(this, Object.getPrototypeOf(CitadelTable).call(this, props));
 	
 	    _this7.state = {
-	      citadels: [{ system: "YHN-3K", region: "Catch", citadel_type: "Astrahus", corporation: "Grass Fed Cannibals", alliance: "Legio De Mortem", killed_at: null }, { system: "7RM-N0", region: "Pure Blind", citadel_type: "Astrahus", corporation: "Pandemic Horde Inc.", alliance: "Pandemic Horde", killed_at: null }, { system: "J165058", region: "D-R00022", citadel_type: "Astrahus", corporation: "Repo Industries", alliance: null, killed_at: null }, { system: "J172350", region: "B-R00006", citadel_type: "Astrahus", corporation: "RGSU", alliance: "Goonswarm Federation", killed_at: '2016.06.27 00:37:37' }]
+	      citadels: [{ system: "YHN-3K", region: "Catch", citadel_type: "Astrahus", corporation: "Grass Fed Cannibals", alliance: "Legio De Mortem", killed_at: null }, { system: "7RM-N0", region: "Pure Blind", citadel_type: "Astrahus", corporation: "Pandemic Horde Inc.", alliance: "Pandemic Horde", killed_at: null }, { system: "J165058", region: "D-R00022", citadel_type: "Astrahus", corporation: "Repo Industries", alliance: null, killed_at: null }, { system: "J172350", region: "B-R00006", citadel_type: "Astrahus", corporation: "RGSU", alliance: "Goonswarm Federation", killed_at: 123123124435 }]
 	    };
 	    return _this7;
 	  }
