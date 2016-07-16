@@ -17,6 +17,7 @@
     "babel-preset-stage-2": "^6.11.0",
     "fixed-data-table": "^0.6.1",
     "react": "^15.2.1",
+    "react-bootstrap-table": "^2.3.7",
     "react-dom": "^15.2.1",
     "webpack": "^1.13.1"
   }
