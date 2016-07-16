@@ -117,8 +117,8 @@
 	  componentDidMount: function componentDidMount() {
 	    $.ajax({
 	      method: "get",
-	      // url: "https://citadeldb.herokuapp.com",
-	      url: "http://localhost:9393/",
+	      url: "https://citadeldb.herokuapp.com",
+	      // url: "http://localhost:9393/",
 	      crossDomain: true,
 	      dataType: "json",
 	      headers: {

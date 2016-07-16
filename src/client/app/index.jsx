@@ -27,8 +27,8 @@ var App = React.createClass({
   componentDidMount: function() {
     $.ajax({
       method: "get",
-      // url: "https://citadeldb.herokuapp.com",
-      url: "http://localhost:9393/",
+      url: "https://citadeldb.herokuapp.com",
+      // url: "http://localhost:9393/",
       crossDomain: true,
       dataType: "json",
       headers: {
