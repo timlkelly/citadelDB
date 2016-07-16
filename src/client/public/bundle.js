@@ -49,55 +49,57 @@
 
 	'use strict';
 	
+	var _react = __webpack_require__(/*! react */ 166);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
 	var _reactDom = __webpack_require__(/*! react-dom */ 1);
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var React = __webpack_require__(/*! react */ 166);
-	
 	var ReactBsTable = __webpack_require__(/*! react-bootstrap-table */ 172);
 	var BootstrapTable = ReactBsTable.BootstrapTable;
 	var TableHeaderColumn = ReactBsTable.TableHeaderColumn;
 	
-	var CitadelTable = React.createClass({
+	var CitadelTable = _react2.default.createClass({
 	  displayName: 'CitadelTable',
 	  render: function render() {
-	    return React.createElement(
+	    return _react2.default.createElement(
 	      BootstrapTable,
 	      { data: this.props.citadels, striped: true, hover: true, pagination: true, search: true },
-	      React.createElement(
+	      _react2.default.createElement(
 	        TableHeaderColumn,
 	        { isKey: true, dataField: 'id', hidden: true },
 	        'Citadel Id'
 	      ),
-	      React.createElement(
+	      _react2.default.createElement(
 	        TableHeaderColumn,
 	        { dataField: 'system' },
 	        'System'
 	      ),
-	      React.createElement(
+	      _react2.default.createElement(
 	        TableHeaderColumn,
 	        { dataField: 'region' },
 	        'Region'
 	      ),
-	      React.createElement(
+	      _react2.default.createElement(
 	        TableHeaderColumn,
 	        { dataField: 'citadel_type' },
 	        'Citadel'
 	      ),
-	      React.createElement(
+	      _react2.default.createElement(
 	        TableHeaderColumn,
 	        { dataField: 'corporation' },
 	        'Corporation'
 	      ),
-	      React.createElement(
+	      _react2.default.createElement(
 	        TableHeaderColumn,
 	        { dataField: 'alliance' },
 	        'Alliance'
 	      ),
-	      React.createElement(
+	      _react2.default.createElement(
 	        TableHeaderColumn,
 	        { dataField: 'killed_at' },
 	        'Destroyed'
@@ -106,7 +108,7 @@
 	  }
 	});
 	
-	var App = React.createClass({
+	var App = _react2.default.createClass({
 	  displayName: 'App',
 	
 	  getInitialState: function getInitialState() {
@@ -131,17 +133,17 @@
 	    });
 	  },
 	  render: function render() {
-	    return React.createElement(
+	    return _react2.default.createElement(
 	      'div',
 	      null,
-	      React.createElement(CitadelTable, { citadels: this.state.citadelData })
+	      _react2.default.createElement(CitadelTable, { citadels: this.state.citadelData })
 	    );
 	  }
 	  // }
 	
 	});
 	
-	_reactDom2.default.render(React.createElement(App, null), document.getElementById('app'));
+	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('app'));
 
 /***/ },
 /* 1 */

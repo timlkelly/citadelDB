@@ -1,4 +1,4 @@
-var React = require('react');
+import React from 'react';
 import ReactDOM from 'react-dom';
 var ReactBsTable  = require('react-bootstrap-table');
 var BootstrapTable = ReactBsTable.BootstrapTable;
