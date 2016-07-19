@@ -24,7 +24,7 @@ var config = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.CITADEL_URL': "'http://localhost:9393'"
+      'process.env.CITADEL_URL': "'http://localhost:9393/?per_page=1000'"
     })
   ]
 };
