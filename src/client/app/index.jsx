@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 var ReactBsTable  = require('react-bootstrap-table');
 var BootstrapTable = ReactBsTable.BootstrapTable;
 var TableHeaderColumn = ReactBsTable.TableHeaderColumn;
-console.log(process.env.CITADEL_URL);
+
 var CitadelTable = React.createClass({
   render() {
     return (
@@ -25,21 +25,11 @@ var App = React.createClass({
     return { citadelData: [] };
   },
   componentDidMount: function() {
-    $.ajax({
-      method: "GET",
-      url: process.env.CITADEL_URL,
-      crossDomain: true,
-      dataType: "json",
-      headers: {
-        "Access-Control-Allow-Origin":"*"
-      },
-      success: function(serverResponse) {
-        this.setState({citadelData: serverResponse.citadels});
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.log(status, err.toString());
-      }.bind(this),
-    });
+    fetch(process.env.CITADEL_URL).then(function(response) {
+      return response.json();
+    }).then(function(response_data) {
+      this.setState( {citadelData: response_data.citadels } )
+    }.bind(this))
   },
   render () {
     return (

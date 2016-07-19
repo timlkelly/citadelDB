@@ -62,7 +62,7 @@
 	var ReactBsTable = __webpack_require__(/*! react-bootstrap-table */ 172);
 	var BootstrapTable = ReactBsTable.BootstrapTable;
 	var TableHeaderColumn = ReactBsTable.TableHeaderColumn;
-	console.log(('http://localhost:9393'));
+	
 	var CitadelTable = _react2.default.createClass({
 	  displayName: 'CitadelTable',
 	  render: function render() {
@@ -115,21 +115,11 @@
 	    return { citadelData: [] };
 	  },
 	  componentDidMount: function componentDidMount() {
-	    $.ajax({
-	      method: "GET",
-	      url: ('http://localhost:9393'),
-	      crossDomain: true,
-	      dataType: "json",
-	      headers: {
-	        "Access-Control-Allow-Origin": "*"
-	      },
-	      success: function (serverResponse) {
-	        this.setState({ citadelData: serverResponse.citadels });
-	      }.bind(this),
-	      error: function (xhr, status, err) {
-	        console.log(status, err.toString());
-	      }.bind(this)
-	    });
+	    fetch(('http://localhost:9393')).then(function (response) {
+	      return response.json();
+	    }).then(function (response_data) {
+	      this.setState({ citadelData: response_data.citadels });
+	    }.bind(this));
 	  },
 	  render: function render() {
 	    return _react2.default.createElement(
