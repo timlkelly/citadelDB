@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 var ReactBsTable  = require('react-bootstrap-table');
 var BootstrapTable = ReactBsTable.BootstrapTable;
 var TableHeaderColumn = ReactBsTable.TableHeaderColumn;
-
+console.log(process.env.CITADEL_URL);
 var CitadelTable = React.createClass({
   render() {
     return (
@@ -26,9 +26,8 @@ var App = React.createClass({
   },
   componentDidMount: function() {
     $.ajax({
-      method: "get",
-      url: "https://citadeldb.herokuapp.com",
-      // url: "http://localhost:9393/",
+      method: "GET",
+      url: process.env.CITADEL_URL,
       crossDomain: true,
       dataType: "json",
       headers: {
@@ -45,7 +44,7 @@ var App = React.createClass({
   render () {
     return (
       <div>
-        <CitadelTable citadels={ this.state.citadelData }/>
+        <CitadelTable citadels={ this.state.citadelData } />
       </div>
     )
   }

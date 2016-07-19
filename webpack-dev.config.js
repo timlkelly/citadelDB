@@ -24,7 +24,7 @@ var config = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.CITADEL_URL': "'https://citadeldb.herokuapp.com'"
+      'process.env.CITADEL_URL': "'http://localhost:9393'"
     })
   ]
 };
