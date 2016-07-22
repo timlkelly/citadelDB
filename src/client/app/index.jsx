@@ -8,6 +8,14 @@ var moment = require('moment');
 
 var CitadelTable = React.createClass({
   render() {
+    function dotlanLink(cell, row){
+      return cell.link("http://evemaps.dotlan.net/system/" + cell + "/");
+    }
+    function destroyed(cell, row){
+      if (cell){        
+        return row.style.backgroundColor = "red";
+      }
+    }
     return (
       <BootstrapTable data={this.props.citadels} 
                       hover={true}
@@ -19,7 +27,7 @@ var CitadelTable = React.createClass({
                         sizePerPageList: [5, 10, 20]
                       } }>
         <TableHeaderColumn isKey={true} dataField="id" hidden={true}>Citadel Id</TableHeaderColumn>
-        <TableHeaderColumn dataField="system">System</TableHeaderColumn>
+        <TableHeaderColumn dataField="system" dataFormat={dotlanLink}>System</TableHeaderColumn>
         <TableHeaderColumn dataField="region">Region</TableHeaderColumn>
         <TableHeaderColumn dataField="citadel_type">Citadel</TableHeaderColumn>
         <TableHeaderColumn dataField="corporation">Corporation</TableHeaderColumn>
@@ -35,16 +43,17 @@ var App = React.createClass({
     return { citadelData: [] };
   },
   componentDidMount: function() {
+    var datatableData = this.datatableData;
     fetch(process.env.CITADEL_URL)
     .then(function(response) {
       return response.json();
     }).then(function(response_data) {
-      response_data.citadels.map(function(c) {
-        if (c.killed_at != null) {
+      response_data.citadels.map(function(c){
+        if (c.killed_at) {
           c.killed_at = moment(c.killed_at, 'X').toString()
         }
-      })
-      this.setState( {citadelData: response_data.citadels } )
+      })      
+      this.setState( { citadelData: response_data.citadels } )
     }.bind(this))
   },
   render () {
@@ -54,7 +63,6 @@ var App = React.createClass({
       </div>
     )
   }
-// }
 });
 
 ReactDOM.render(<App />, document.getElementById('app'));

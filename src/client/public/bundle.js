@@ -74,6 +74,14 @@
 	var CitadelTable = _react2.default.createClass({
 	  displayName: 'CitadelTable',
 	  render: function render() {
+	    function dotlanLink(cell, row) {
+	      return cell.link("http://evemaps.dotlan.net/system/" + cell + "/");
+	    }
+	    function destroyed(cell, row) {
+	      if (cell) {
+	        return row.style.backgroundColor = "red";
+	      }
+	    }
 	    return _react2.default.createElement(
 	      BootstrapTable,
 	      { data: this.props.citadels,
@@ -92,7 +100,7 @@
 	      ),
 	      _react2.default.createElement(
 	        TableHeaderColumn,
-	        { dataField: 'system' },
+	        { dataField: 'system', dataFormat: dotlanLink },
 	        'System'
 	      ),
 	      _react2.default.createElement(
@@ -131,11 +139,12 @@
 	    return { citadelData: [] };
 	  },
 	  componentDidMount: function componentDidMount() {
+	    var datatableData = this.datatableData;
 	    fetch(('https://citadeldb.herokuapp.com/?per_page=1000')).then(function (response) {
 	      return response.json();
 	    }).then(function (response_data) {
 	      response_data.citadels.map(function (c) {
-	        if (c.killed_at != null) {
+	        if (c.killed_at) {
 	          c.killed_at = moment(c.killed_at, 'X').toString();
 	        }
 	      });
@@ -149,8 +158,6 @@
 	      _react2.default.createElement(CitadelTable, { citadels: this.state.citadelData })
 	    );
 	  }
-	  // }
-
 	});
 
 	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('app'));
