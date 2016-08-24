@@ -7,17 +7,20 @@ var TableHeaderColumn = ReactBsTable.TableHeaderColumn;
 var moment = require('moment');
 
 var CitadelTable = React.createClass({
-  render() {
+  componentDidMount: function() {
     function dotlanLink(cell, row){
       return cell.link("http://evemaps.dotlan.net/system/" + cell + "/");
     }
+
     function destroyed(cell, row){
-      if (cell){        
+      if (cell){
         return row.style.backgroundColor = "red";
       }
     }
+  }
+  render() {
     return (
-      <BootstrapTable data={this.props.citadels} 
+      <BootstrapTable data={this.props.citadels}
                       hover={true}
                       search={true}
                       striped={true}
@@ -52,7 +55,7 @@ var App = React.createClass({
         if (c.killed_at) {
           c.killed_at = moment(c.killed_at, 'X').toString()
         }
-      })      
+      })
       this.setState( { citadelData: response_data.citadels } )
     }.bind(this))
   },
